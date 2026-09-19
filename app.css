@@ -412,30 +412,42 @@ aside,
 }
 
 /* Active Page State (Selected Child - Matching Rail Line Indicator) */
+/* Active Page State (High-Contrast, Unmistakable Highlight for Active Link) */
+[data-slot="aside"] a[aria-current="page"],
+[data-slot="aside"] a.router-link-active,
+[data-slot="aside"] a.router-link-exact-active,
 [data-slot="content"] a[data-slot="link"][aria-current="page"],
 [data-slot="content"] a[data-slot="link"].router-link-active,
 [data-slot="content"] a[data-slot="link"].router-link-exact-active,
 [data-slot="itemWithChildren"] [data-slot="content"] a[aria-current="page"],
 [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-active,
-[data-slot="itemWithChildren"] [data-slot="content"] a.router-link-exact-active {
-  color: #2563eb !important;
-  background-color: rgba(37, 99, 235, 0.08) !important;
+[data-slot="itemWithChildren"] [data-slot="content"] a.router-link-exact-active,
+.sidebar-nav-wrapper a.router-link-active {
+  color: #4338ca !important;
+  background-color: rgba(79, 70, 229, 0.1) !important;
   font-weight: 600 !important;
-  border-left: 2px solid #2563eb !important;
-  margin-left: -0.85rem !important;
-  padding-left: calc(0.85rem + 0.6rem - 2px) !important;
-  border-radius: 0 0.375rem 0.375rem 0 !important;
+  border-left: 3px solid #4f46e5 !important;
+  border-radius: 0.375rem !important;
+  padding-left: 0.75rem !important;
 }
 
+.dark [data-slot="aside"] a[aria-current="page"],
+.dark [data-slot="aside"] a.router-link-active,
+.dark [data-slot="aside"] a.router-link-exact-active,
 .dark [data-slot="content"] a[data-slot="link"][aria-current="page"],
 .dark [data-slot="content"] a[data-slot="link"].router-link-active,
 .dark [data-slot="content"] a[data-slot="link"].router-link-exact-active,
 .dark [data-slot="itemWithChildren"] [data-slot="content"] a[aria-current="page"],
 .dark [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-active,
-.dark [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-exact-active {
-  color: #60a5fa !important;
-  background-color: rgba(59, 130, 246, 0.08) !important;
-  border-left-color: #60a5fa !important;
+.dark [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-exact-active,
+.dark .sidebar-nav-wrapper a.router-link-active {
+  color: #c7d2fe !important;
+  background-color: rgba(99, 102, 241, 0.18) !important;
+  font-weight: 600 !important;
+  border-left: 3px solid #818cf8 !important;
+  border-radius: 0.375rem !important;
+  padding-left: 0.75rem !important;
+  box-shadow: 0 0 16px rgba(99, 102, 241, 0.15) !important;
 }
 
 /* ============================================
