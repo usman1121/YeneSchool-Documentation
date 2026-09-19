@@ -390,98 +390,71 @@ aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]::after,
 }
 
 /* Inactive Sublink Colors */
-aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]:not(.text-primary):not([aria-current="page"]):not(.router-link-active):not(.router-link-exact-active),
-[data-slot="itemWithChildren"] [data-slot="content"] a:not(.text-primary):not([aria-current="page"]):not(.router-link-active):not(.router-link-exact-active),
-.sidebar-nav-wrapper ul ul a:not(.text-primary):not([aria-current="page"]):not(.router-link-active):not(.router-link-exact-active) {
+aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]:not([aria-current="page"]):not(.router-link-exact-active),
+[data-slot="itemWithChildren"] [data-slot="content"] a:not([aria-current="page"]):not(.router-link-exact-active),
+.sidebar-nav-wrapper ul ul a:not([aria-current="page"]):not(.router-link-exact-active) {
   color: #52525b !important;
 }
 
-.dark aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]:not(.text-primary):not([aria-current="page"]):not(.router-link-active):not(.router-link-exact-active),
-.dark [data-slot="itemWithChildren"] [data-slot="content"] a:not(.text-primary):not([aria-current="page"]):not(.router-link-active):not(.router-link-exact-active),
-.dark .sidebar-nav-wrapper ul ul a:not(.text-primary):not([aria-current="page"]):not(.router-link-active):not(.router-link-exact-active) {
+.dark aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]:not([aria-current="page"]):not(.router-link-exact-active),
+.dark [data-slot="itemWithChildren"] [data-slot="content"] a:not([aria-current="page"]):not(.router-link-exact-active),
+.dark .sidebar-nav-wrapper ul ul a:not([aria-current="page"]):not(.router-link-exact-active) {
   color: #a1a1aa !important;
 }
 
-/* Child Hover State (when not active) */
-aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]:not(.text-primary):not([aria-current="page"]):not(.router-link-active):hover,
-[data-slot="itemWithChildren"] [data-slot="content"] a:not(.text-primary):not([aria-current="page"]):not(.router-link-active):hover,
-.sidebar-nav-wrapper ul ul a:not(.text-primary):not([aria-current="page"]):not(.router-link-active):hover {
+/* Child Hover State (when not exact active) */
+aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]:not([aria-current="page"]):not(.router-link-exact-active):hover,
+[data-slot="itemWithChildren"] [data-slot="content"] a:not([aria-current="page"]):not(.router-link-exact-active):hover,
+.sidebar-nav-wrapper ul ul a:not([aria-current="page"]):not(.router-link-exact-active):hover {
   color: #09090b !important;
   background-color: rgba(0, 0, 0, 0.04) !important;
 }
 
-.dark aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]:not(.text-primary):not([aria-current="page"]):not(.router-link-active):hover,
-.dark [data-slot="itemWithChildren"] [data-slot="content"] a:not(.text-primary):not([aria-current="page"]):not(.router-link-active):hover,
-.dark .sidebar-nav-wrapper ul ul a:not(.text-primary):not([aria-current="page"]):not(.router-link-active):hover {
+.dark aside[data-slot="left"] [data-slot="content"] a[data-slot="link"]:not([aria-current="page"]):not(.router-link-exact-active):hover,
+.dark [data-slot="itemWithChildren"] [data-slot="content"] a:not([aria-current="page"]):not(.router-link-exact-active):hover,
+.dark .sidebar-nav-wrapper ul ul a:not([aria-current="page"]):not(.router-link-exact-active):hover {
   color: #ffffff !important;
   background-color: rgba(255, 255, 255, 0.04) !important;
 }
 
-/* Active Parent Category Header (When section or child is active) */
-[data-slot="itemWithChildren"] > button[data-active="true"],
-[data-slot="itemWithChildren"] > button.text-primary,
-[data-slot="itemWithChildren"] > button[data-state="open"],
-[data-slot="itemWithChildren"]:has(a.router-link-active) > button,
+/* Active Parent Category Header (Only when an exact child is active) */
 [data-slot="itemWithChildren"]:has(a.router-link-exact-active) > button,
 [data-slot="itemWithChildren"]:has(a[aria-current="page"]) > button,
-[data-slot="itemWithChildren"]:has(a.text-primary) > button,
+[data-slot="itemWithChildren"]:has(a.router-link-exact-active) [data-slot="trigger"],
 [data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="trigger"],
-[data-slot="itemWithChildren"]:has(a.router-link-active) [data-slot="trigger"],
-[data-slot="itemWithChildren"]:has(a.text-primary) [data-slot="trigger"],
 [data-slot="itemWithChildren"] > [data-slot="link"][aria-current="page"],
-[data-slot="itemWithChildren"] > [data-slot="link"].router-link-active,
-[data-slot="itemWithChildren"] > [data-slot="link"].text-primary {
+[data-slot="itemWithChildren"] > [data-slot="link"].router-link-exact-active {
   color: var(--ui-primary, #4f46e5) !important;
   font-weight: 700 !important;
 }
 
-[data-slot="itemWithChildren"]:has(a.router-link-active) [data-slot="linkLeadingIcon"],
-[data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="linkLeadingIcon"],
-[data-slot="itemWithChildren"]:has(a.text-primary) [data-slot="linkLeadingIcon"],
-[data-slot="itemWithChildren"] > button.text-primary [data-slot="linkLeadingIcon"] {
+[data-slot="itemWithChildren"]:has(a.router-link-exact-active) [data-slot="linkLeadingIcon"],
+[data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="linkLeadingIcon"] {
   color: var(--ui-primary, #4f46e5) !important;
 }
 
-.dark [data-slot="itemWithChildren"] > button[data-active="true"],
-.dark [data-slot="itemWithChildren"] > button.text-primary,
-.dark [data-slot="itemWithChildren"]:has(a.router-link-active) > button,
 .dark [data-slot="itemWithChildren"]:has(a.router-link-exact-active) > button,
 .dark [data-slot="itemWithChildren"]:has(a[aria-current="page"]) > button,
-.dark [data-slot="itemWithChildren"]:has(a.text-primary) > button,
+.dark [data-slot="itemWithChildren"]:has(a.router-link-exact-active) [data-slot="trigger"],
 .dark [data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="trigger"],
-.dark [data-slot="itemWithChildren"]:has(a.router-link-active) [data-slot="trigger"],
-.dark [data-slot="itemWithChildren"]:has(a.text-primary) [data-slot="trigger"],
 .dark [data-slot="itemWithChildren"] > [data-slot="link"][aria-current="page"],
-.dark [data-slot="itemWithChildren"] > [data-slot="link"].router-link-active,
-.dark [data-slot="itemWithChildren"] > [data-slot="link"].text-primary {
+.dark [data-slot="itemWithChildren"] > [data-slot="link"].router-link-exact-active {
   color: #a5b4fc !important;
   font-weight: 700 !important;
 }
 
-.dark [data-slot="itemWithChildren"]:has(a.router-link-active) [data-slot="linkLeadingIcon"],
-.dark [data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="linkLeadingIcon"],
-.dark [data-slot="itemWithChildren"]:has(a.text-primary) [data-slot="linkLeadingIcon"],
-.dark [data-slot="itemWithChildren"] > button.text-primary [data-slot="linkLeadingIcon"] {
+.dark [data-slot="itemWithChildren"]:has(a.router-link-exact-active) [data-slot="linkLeadingIcon"],
+.dark [data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="linkLeadingIcon"] {
   color: #818cf8 !important;
 }
 
-/* Active Sublink (Left Sidebar Child Item - Light Mode) */
-aside[data-slot="left"] a.text-primary,
-aside[data-slot="left"] a[aria-current="page"],
-aside[data-slot="left"] a.router-link-active,
-aside[data-slot="left"] a.router-link-exact-active,
-aside[data-slot="left"] [data-slot="content"] a.text-primary,
+/* Active Sublink (Left Sidebar Child Item - Strictly Exact Active Only) */
 aside[data-slot="left"] [data-slot="content"] a[aria-current="page"],
-aside[data-slot="left"] [data-slot="content"] a.router-link-active,
 aside[data-slot="left"] [data-slot="content"] a.router-link-exact-active,
-[data-slot="itemWithChildren"] [data-slot="content"] a.text-primary,
 [data-slot="itemWithChildren"] [data-slot="content"] a[aria-current="page"],
-[data-slot="itemWithChildren"] [data-slot="content"] a.router-link-active,
 [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-exact-active,
-.sidebar-nav-wrapper a.text-primary,
-.sidebar-nav-wrapper a[aria-current="page"],
-.sidebar-nav-wrapper a.router-link-active,
-.sidebar-nav-wrapper a.router-link-exact-active {
+.sidebar-nav-wrapper ul ul a[aria-current="page"],
+.sidebar-nav-wrapper ul ul a.router-link-exact-active {
   color: var(--ui-primary, #4f46e5) !important;
   background-color: color-mix(in srgb, var(--ui-primary, #4f46e5) 12%, transparent) !important;
   font-weight: 600 !important;
@@ -490,37 +463,22 @@ aside[data-slot="left"] [data-slot="content"] a.router-link-exact-active,
   padding-left: 0.75rem !important;
 }
 
-aside[data-slot="left"] a.text-primary [data-slot="linkLeadingIcon"],
-aside[data-slot="left"] a[aria-current="page"] [data-slot="linkLeadingIcon"],
-aside[data-slot="left"] a.router-link-active [data-slot="linkLeadingIcon"],
-aside[data-slot="left"] a.router-link-exact-active [data-slot="linkLeadingIcon"],
-[data-slot="itemWithChildren"] [data-slot="content"] a.text-primary [data-slot="linkLeadingIcon"],
+aside[data-slot="left"] [data-slot="content"] a[aria-current="page"] [data-slot="linkLeadingIcon"],
+aside[data-slot="left"] [data-slot="content"] a.router-link-exact-active [data-slot="linkLeadingIcon"],
 [data-slot="itemWithChildren"] [data-slot="content"] a[aria-current="page"] [data-slot="linkLeadingIcon"],
-[data-slot="itemWithChildren"] [data-slot="content"] a.router-link-active [data-slot="linkLeadingIcon"],
 [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-exact-active [data-slot="linkLeadingIcon"],
-.sidebar-nav-wrapper a.text-primary [data-slot="linkLeadingIcon"],
-.sidebar-nav-wrapper a[aria-current="page"] [data-slot="linkLeadingIcon"],
-.sidebar-nav-wrapper a.router-link-active [data-slot="linkLeadingIcon"] {
+.sidebar-nav-wrapper ul ul a[aria-current="page"] [data-slot="linkLeadingIcon"],
+.sidebar-nav-wrapper ul ul a.router-link-exact-active [data-slot="linkLeadingIcon"] {
   color: var(--ui-primary, #4f46e5) !important;
 }
 
-/* Active Sublink (Left Sidebar Child Item - Dark Mode) */
-.dark aside[data-slot="left"] a.text-primary,
-.dark aside[data-slot="left"] a[aria-current="page"],
-.dark aside[data-slot="left"] a.router-link-active,
-.dark aside[data-slot="left"] a.router-link-exact-active,
-.dark aside[data-slot="left"] [data-slot="content"] a.text-primary,
+/* Active Sublink Dark Mode (Strictly Exact Active Only) */
 .dark aside[data-slot="left"] [data-slot="content"] a[aria-current="page"],
-.dark aside[data-slot="left"] [data-slot="content"] a.router-link-active,
 .dark aside[data-slot="left"] [data-slot="content"] a.router-link-exact-active,
-.dark [data-slot="itemWithChildren"] [data-slot="content"] a.text-primary,
 .dark [data-slot="itemWithChildren"] [data-slot="content"] a[aria-current="page"],
-.dark [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-active,
 .dark [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-exact-active,
-.dark .sidebar-nav-wrapper a.text-primary,
-.dark .sidebar-nav-wrapper a[aria-current="page"],
-.dark .sidebar-nav-wrapper a.router-link-active,
-.dark .sidebar-nav-wrapper a.router-link-exact-active {
+.dark .sidebar-nav-wrapper ul ul a[aria-current="page"],
+.dark .sidebar-nav-wrapper ul ul a.router-link-exact-active {
   color: #a5b4fc !important;
   background-color: rgba(99, 102, 241, 0.16) !important;
   font-weight: 600 !important;
@@ -530,17 +488,12 @@ aside[data-slot="left"] a.router-link-exact-active [data-slot="linkLeadingIcon"]
   box-shadow: 0 0 16px rgba(99, 102, 241, 0.15) !important;
 }
 
-.dark aside[data-slot="left"] a.text-primary [data-slot="linkLeadingIcon"],
-.dark aside[data-slot="left"] a[aria-current="page"] [data-slot="linkLeadingIcon"],
-.dark aside[data-slot="left"] a.router-link-active [data-slot="linkLeadingIcon"],
-.dark aside[data-slot="left"] a.router-link-exact-active [data-slot="linkLeadingIcon"],
-.dark [data-slot="itemWithChildren"] [data-slot="content"] a.text-primary [data-slot="linkLeadingIcon"],
+.dark aside[data-slot="left"] [data-slot="content"] a[aria-current="page"] [data-slot="linkLeadingIcon"],
+.dark aside[data-slot="left"] [data-slot="content"] a.router-link-exact-active [data-slot="linkLeadingIcon"],
 .dark [data-slot="itemWithChildren"] [data-slot="content"] a[aria-current="page"] [data-slot="linkLeadingIcon"],
-.dark [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-active [data-slot="linkLeadingIcon"],
 .dark [data-slot="itemWithChildren"] [data-slot="content"] a.router-link-exact-active [data-slot="linkLeadingIcon"],
-.dark .sidebar-nav-wrapper a.text-primary [data-slot="linkLeadingIcon"],
-.dark .sidebar-nav-wrapper a[aria-current="page"] [data-slot="linkLeadingIcon"],
-.dark .sidebar-nav-wrapper a.router-link-active [data-slot="linkLeadingIcon"] {
+.dark .sidebar-nav-wrapper ul ul a[aria-current="page"] [data-slot="linkLeadingIcon"],
+.dark .sidebar-nav-wrapper ul ul a.router-link-exact-active [data-slot="linkLeadingIcon"] {
   color: #818cf8 !important;
 }
 
