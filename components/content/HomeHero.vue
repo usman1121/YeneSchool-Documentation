@@ -87,17 +87,16 @@ onMounted(() => {
         delay: 0.8,
       })
 
-      // Delayed Cinematic Reveal for CTA Action Buttons (reveals after headline and paragraph)
-      gsap.from('.hero-cta-buttons .cta-button', {
+      // Cinematic Staggered Entrance for CTA Action Buttons
+      gsap.from('.cta-btn-wrapper', {
         opacity: 0,
-        y: 28,
-        scale: 0.92,
-        filter: 'blur(8px)',
-        duration: 0.9,
-        stagger: 0.15,
-        ease: 'power3.out',
-        delay: 1.85,
-        clearProps: 'filter',
+        y: 20,
+        scale: 0.95,
+        duration: 0.8,
+        stagger: 0.12,
+        ease: 'power2.out',
+        delay: 0.9,
+        clearProps: 'all',
       })
     })
   }
@@ -141,26 +140,30 @@ onUnmounted(() => {
         </span>
       </p>
 
-      <!-- Primary Action Buttons (Animated Delayed Reveal) -->
+      <!-- Primary Action Buttons (Animated Delayed Entrance) -->
       <div class="hero-cta-buttons flex flex-wrap items-center justify-center gap-4 pt-3">
-        <UButton
-          to="/guides/getting-started"
-          size="xl"
-          trailing-icon="i-lucide-arrow-right"
-          class="cta-button px-8 py-3.5 font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
-        >
-          {{ t.getStarted }}
-        </UButton>
-        <UButton
-          to="/guides"
-          color="neutral"
-          variant="outline"
-          size="xl"
-          icon="i-lucide-book-open"
-          class="cta-button px-8 py-3.5 font-semibold hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
-        >
-          {{ t.browseGuides }}
-        </UButton>
+        <div class="cta-btn-wrapper inline-block">
+          <UButton
+            to="/guides/getting-started"
+            size="xl"
+            trailing-icon="i-lucide-arrow-right"
+            class="px-8 py-3.5 font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
+          >
+            {{ t.getStarted }}
+          </UButton>
+        </div>
+        <div class="cta-btn-wrapper inline-block">
+          <UButton
+            to="/guides"
+            color="neutral"
+            variant="outline"
+            size="xl"
+            icon="i-lucide-book-open"
+            class="px-8 py-3.5 font-semibold hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
+          >
+            {{ t.browseGuides }}
+          </UButton>
+        </div>
       </div>
     </div>
   </div>
