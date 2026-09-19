@@ -1,6 +1,9 @@
 ---
 title: Documentation Directory
 description: Explore all role guides, administrative manuals, and platform walkthroughs for YeneSchool.
+icon: i-lucide-folder-tree
+navigation:
+  icon: i-lucide-folder-tree
 ---
 
 # YeneSchool Documentation Directory
