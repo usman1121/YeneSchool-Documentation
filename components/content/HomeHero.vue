@@ -86,6 +86,19 @@ onMounted(() => {
         ease: 'power2.out',
         delay: 0.8,
       })
+
+      // Delayed Cinematic Reveal for CTA Action Buttons (reveals after headline and paragraph)
+      gsap.from('.hero-cta-buttons .cta-button', {
+        opacity: 0,
+        y: 28,
+        scale: 0.92,
+        filter: 'blur(8px)',
+        duration: 0.9,
+        stagger: 0.15,
+        ease: 'power3.out',
+        delay: 1.85,
+        clearProps: 'filter',
+      })
     })
   }
 })
@@ -128,13 +141,13 @@ onUnmounted(() => {
         </span>
       </p>
 
-      <!-- Primary Action Buttons -->
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-2">
+      <!-- Primary Action Buttons (Animated Delayed Reveal) -->
+      <div class="hero-cta-buttons flex flex-wrap items-center justify-center gap-4 pt-3">
         <UButton
           to="/guides/getting-started"
           size="xl"
           trailing-icon="i-lucide-arrow-right"
-          class="px-8 py-3.5 font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 transition-all text-base sm:text-lg"
+          class="cta-button px-8 py-3.5 font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
         >
           {{ t.getStarted }}
         </UButton>
@@ -144,7 +157,7 @@ onUnmounted(() => {
           variant="outline"
           size="xl"
           icon="i-lucide-book-open"
-          class="px-8 py-3.5 font-semibold text-base sm:text-lg"
+          class="cta-button px-8 py-3.5 font-semibold hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
         >
           {{ t.browseGuides }}
         </UButton>
