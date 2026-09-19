@@ -411,7 +411,36 @@ aside,
   background-color: rgba(255, 255, 255, 0.04) !important;
 }
 
-/* Active Page State (Selected Child - Matching Rail Line Indicator) */
+/* Active Parent Category Header (When section or child is active) */
+[data-slot="itemWithChildren"]:has(a[aria-current="page"]) > button,
+[data-slot="itemWithChildren"]:has(a.router-link-active) > button,
+[data-slot="itemWithChildren"]:has(a.router-link-exact-active) > button,
+[data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="trigger"],
+[data-slot="itemWithChildren"]:has(a.router-link-active) [data-slot="trigger"] {
+  color: #4338ca !important;
+  font-weight: 700 !important;
+}
+
+[data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="linkLeadingIcon"],
+[data-slot="itemWithChildren"]:has(a.router-link-active) [data-slot="linkLeadingIcon"] {
+  color: #4f46e5 !important;
+}
+
+.dark [data-slot="itemWithChildren"]:has(a[aria-current="page"]) > button,
+.dark [data-slot="itemWithChildren"]:has(a.router-link-active) > button,
+.dark [data-slot="itemWithChildren"]:has(a.router-link-exact-active) > button,
+.dark [data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="trigger"],
+.dark [data-slot="itemWithChildren"]:has(a.router-link-active) [data-slot="trigger"] {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+.dark [data-slot="itemWithChildren"]:has(a[aria-current="page"]) [data-slot="linkLeadingIcon"],
+.dark [data-slot="itemWithChildren"]:has(a.router-link-active) [data-slot="linkLeadingIcon"] {
+  color: #a5b4fc !important;
+  filter: drop-shadow(0 0 6px rgba(99, 102, 241, 0.45));
+}
+
 /* Active Page State (High-Contrast, Unmistakable Highlight for Active Link) */
 [data-slot="aside"] a[aria-current="page"],
 [data-slot="aside"] a.router-link-active,
