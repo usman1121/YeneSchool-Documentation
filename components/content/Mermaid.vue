@@ -1,39 +1,27 @@
 <template>
-  <div
-    class="mermaid-wrapper my-6 flex justify-center overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6"
-  >
-    <div v-if="loading" class="text-gray-400 text-sm py-4 animate-pulse">Rendering diagram…</div>
-    <div v-else ref="el" class="mermaid-diagram max-w-full" />
+  <div class="mermaid-wrapper my-6 flex justify-center overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6">
+    <div ref="el" class="mermaid-diagram max-w-full" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const props = defineProps<{ code: string }>()
-
 const el = ref<HTMLElement | null>(null)
-const loading = ref(true)
 
-function loadScript(src: string): Promise<void> {
-  return new Promise((resolve, reject) => {
-    if (document.querySelector(`script[src="${src}"]`)) return resolve()
-    const s = document.createElement('script')
-    s.src = src
-    s.onload = () => resolve()
-    s.onerror = reject
-    document.head.appendChild(s)
-  })
-}
-
-async function render() {
+onMounted(async () => {
   if (!el.value || !props.code) return
-  loading.value = true
 
-  // Load mermaid from CDN if not already loaded
-  await loadScript('https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js')
+  // Wait for mermaid global (loaded via page <head> script tag)
+  let attempts = 0
+  while (!(window as any).mermaid && attempts++ < 20) {
+    await new Promise(r => setTimeout(r, 100))
+  }
 
   const mermaid = (window as any).mermaid
+  if (!mermaid) return
+
   mermaid.initialize({
     startOnLoad: false,
     theme: 'base',
@@ -51,16 +39,12 @@ async function render() {
     flowchart: { curve: 'basis', padding: 20 },
   })
 
-  const id = `mermaid-${Math.random().toString(36).slice(2)}`
+  const id = `m${Math.random().toString(36).slice(2)}`
   try {
     const { svg } = await mermaid.render(id, props.code)
     if (el.value) el.value.innerHTML = svg
-  } catch (e) {
-    if (el.value) el.value.innerHTML = `<pre class="text-red-500 text-xs">${props.code}</pre>`
+  } catch {
+    if (el.value) el.value.innerHTML = `<pre class="text-xs text-red-400 whitespace-pre-wrap">${props.code}</pre>`
   }
-  loading.value = false
-}
-
-onMounted(render)
-watch(() => props.code, render)
+})
 </script>

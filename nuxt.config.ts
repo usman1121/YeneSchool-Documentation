@@ -29,6 +29,11 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        // Preload mermaid so diagrams render instantly (no loading delay)
+        { rel: 'preload', as: 'script', href: 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js' },
+      ],
+      script: [
+        { src: 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js', defer: true },
       ],
     },
   },
