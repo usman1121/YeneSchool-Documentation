@@ -10,14 +10,14 @@ const { hasLogo, headerLightUrl, headerDarkUrl, contextMenuItems } = useLogoAsse
         <img
           :src="headerLightUrl || '/logo-light.svg'"
           :alt="appConfig.header?.logo?.alt || 'Gradify'"
-          class="h-8 w-auto shrink-0 block dark:hidden"
-          style="height: 32px; max-height: 32px; width: auto;"
+          class="w-auto shrink-0 block dark:hidden"
+          style="height: 64px; max-height: 64px; width: auto;"
         />
         <img
           :src="headerDarkUrl || '/logo-dark.svg'"
           :alt="appConfig.header?.logo?.alt || 'Gradify'"
-          class="h-8 w-auto shrink-0 hidden dark:block"
-          style="height: 32px; max-height: 32px; width: auto;"
+          class="w-auto shrink-0 hidden dark:block"
+          style="height: 64px; max-height: 64px; width: auto;"
         />
       </div>
     </UContextMenu>
