@@ -45,17 +45,6 @@ export default defineAppConfig({
 
   toc: {
     title: 'On this page',
-    bottom: {
-      title: 'Need help?',
-      links: [
-        {
-          icon: 'i-lucide-message-circle',
-          label: 'Contact Support',
-          to: 'mailto:support@yeneschool.me',
-          target: '_blank',
-        },
-      ],
-    },
   },
 
   navigation: false,
