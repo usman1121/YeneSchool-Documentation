@@ -1,6 +1,6 @@
 <template>
-  <div class="mermaid-wrapper my-6 flex justify-center overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6">
-    <div ref="el" class="mermaid-diagram max-w-full" />
+  <div class="mermaid-wrapper my-6 overflow-x-auto rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6">
+    <div ref="el" class="mermaid-diagram" />
   </div>
 </template>
 
@@ -34,17 +34,45 @@ onMounted(async () => {
       tertiaryColor: '#F0F9FF',
       edgeLabelBackground: '#ffffff',
       fontFamily: 'Inter, system-ui, sans-serif',
-      fontSize: '14px',
+      fontSize: '16px',
     },
-    flowchart: { curve: 'basis', padding: 20 },
+    flowchart: { curve: 'basis', padding: 24, nodeSpacing: 60, rankSpacing: 80 },
   })
 
   const id = `m${Math.random().toString(36).slice(2)}`
   try {
     const { svg } = await mermaid.render(id, props.code)
-    if (el.value) el.value.innerHTML = svg
+    if (el.value) {
+      el.value.innerHTML = svg
+      // Make the SVG fill the full container width
+      const svgEl = el.value.querySelector('svg')
+      if (svgEl) {
+        svgEl.style.width = '100%'
+        svgEl.style.maxWidth = '100%'
+        svgEl.style.height = 'auto'
+        svgEl.removeAttribute('width')
+        svgEl.removeAttribute('height')
+      }
+    }
   } catch {
     if (el.value) el.value.innerHTML = `<pre class="text-xs text-red-400 whitespace-pre-wrap">${props.code}</pre>`
   }
 })
 </script>
+
+<style scoped>
+.mermaid-diagram :deep(svg) {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 120px;
+}
+.mermaid-diagram :deep(.node rect),
+.mermaid-diagram :deep(.node circle),
+.mermaid-diagram :deep(.node polygon) {
+  stroke-width: 2px;
+}
+.mermaid-diagram :deep(.nodeLabel) {
+  font-size: 15px !important;
+}
+</style>
