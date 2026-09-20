@@ -84,11 +84,8 @@ addPrerenderPath(`/raw${route.path}.md`)
         :value="page"
       />
 
-      <!-- Rich Interactive Page Feedback & Actions Bar -->
-      <DocsPageFeedbackBar :page-title="page?.title" />
-
       <!-- Previous & Next Navigation Buttons -->
-      <div class="mt-4 pt-2">
+      <div class="mt-8 pt-4">
         <UContentSurround :surround="surround" />
       </div>
     </UPageBody>
