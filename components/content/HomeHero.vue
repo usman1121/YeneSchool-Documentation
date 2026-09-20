@@ -64,7 +64,7 @@ onUnmounted(() => {
       <h1 class="hero-title-wipe w-full max-w-7xl font-black tracking-[-0.04em] text-zinc-900 dark:text-white leading-[0.98] text-[clamp(48px,8vw,114px)] [text-wrap:balance]">
         {{ t.titleLine1 }}
         <br />
-        <span class="text-zinc-900 dark:text-white">{{ t.forWord }} </span>
+        <span class="text-zinc-900 dark:text-white mr-3 sm:mr-4">{{ t.forWord }}</span>
         <span class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 dark:from-blue-400 dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent inline-block">
           {{ t.typedBrand || 'YeneSchool' }}
         </span>
