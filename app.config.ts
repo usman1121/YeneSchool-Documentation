@@ -14,9 +14,9 @@ export default defineAppConfig({
   },
 
   header: {
-    title: 'YeneSchool',
+    title: 'Gradify',
     logo: {
-      alt: 'YeneSchool',
+      alt: 'Gradify',
       light: '/logo-light.svg',
       dark: '/logo-dark.svg',
       display: 'wordmark',
