@@ -1,7 +1,24 @@
 export default defineNuxtConfig({
   extends: ['docus'],
+  modules: ['@nuxtjs/i18n'],
   devtools: { enabled: false },
   css: ['~/app.css'],
+
+  i18n: {
+    locales: [
+      { code: 'en', name: 'English',  file: 'en.json' },
+      { code: 'am', name: 'አማርኛ',    file: 'am.json' },
+    ],
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
+    langDir: 'locales/',
+    lazy: false,
+    detectBrowserLanguage: {
+      useCookie: true,
+      cookieKey: 'sp_lang',
+      redirectOn: 'root',
+    },
+  },
 
   routeRules: {
     '/guides': { redirect: { to: '/guides/getting-started', statusCode: 302 } },

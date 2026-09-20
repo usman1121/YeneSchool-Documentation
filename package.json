@@ -5,6 +5,7 @@
     "build": "nuxt build"
   },
   "dependencies": {
+    "@nuxtjs/i18n": "^10.6.0",
     "better-sqlite3": "^12.11.1",
     "docus": "latest",
     "gsap": "^3.15.0",

@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "Home",
+    "search": "Search...",
+    "guides": "Guides",
+    "director": "Director",
+    "teacher": "Teacher",
+    "registrar": "Registrar",
+    "finance": "Finance",
+    "parent": "Parent & Student",
+    "platform": "Platform"
+  },
+  "hero": {
+    "title": "SchoolPlus Documentation",
+    "subtitle": "User guides, role-based walkthroughs, and feature documentation for SchoolPlus.",
+    "cta_primary": "Get Started",
+    "cta_secondary": "View on GitHub"
+  },
+  "roles": {
+    "director": "Director",
+    "teacher": "Teacher",
+    "registrar": "Registrar",
+    "finance": "Finance Officer",
+    "parent": "Parent",
+    "student": "Student"
+  },
+  "common": {
+    "on_this_page": "On this page",
+    "prev": "Previous",
+    "next": "Next",
+    "edit_page": "Edit this page",
+    "last_updated": "Last updated",
+    "reading_time": "min read",
+    "table_of_contents": "Table of Contents",
+    "tip": "Tip",
+    "warning": "Warning",
+    "note": "Note",
+    "caution": "Caution",
+    "loading": "Loading...",
+    "rendering": "Rendering diagram…"
+  },
+  "theme": {
+    "toggle_light": "Switch to Light Mode",
+    "toggle_dark": "Switch to Dark Mode"
+  },
+  "lang": {
+    "switch": "Switch Language",
+    "en": "English",
+    "am": "አማርኛ"
+  }
+}

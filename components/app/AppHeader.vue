@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LanguageSwitcher from './LanguageSwitcher.vue'
+import LangSwitcher from './LangSwitcher.vue'
 
 const appConfig = useAppConfig()
 const colorMode = useColorMode()
@@ -49,7 +49,7 @@ const isHomePage = computed(() => route.path === '/' || route.path === '')
         />
 
         <!-- Language Switcher -->
-        <LanguageSwitcher />
+        <ClientOnly><LangSwitcher /></ClientOnly>
 
         <!-- Theme Switcher (Light / Dark mode toggle) -->
         <ClientOnly>
