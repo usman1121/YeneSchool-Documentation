@@ -13,7 +13,6 @@ const el = ref<HTMLElement | null>(null)
 onMounted(async () => {
   if (!el.value || !props.code) return
 
-  // Wait for mermaid global (loaded via page <head> script tag)
   let attempts = 0
   while (!(window as any).mermaid && attempts++ < 20) {
     await new Promise(r => setTimeout(r, 100))
@@ -34,9 +33,9 @@ onMounted(async () => {
       tertiaryColor: '#F0F9FF',
       edgeLabelBackground: '#ffffff',
       fontFamily: 'Inter, system-ui, sans-serif',
-      fontSize: '16px',
+      fontSize: '20px',
     },
-    flowchart: { curve: 'basis', padding: 24, nodeSpacing: 60, rankSpacing: 80 },
+    flowchart: { curve: 'basis', padding: 32, nodeSpacing: 80, rankSpacing: 100 },
   })
 
   const id = `m${Math.random().toString(36).slice(2)}`
@@ -44,7 +43,6 @@ onMounted(async () => {
     const { svg } = await mermaid.render(id, props.code)
     if (el.value) {
       el.value.innerHTML = svg
-      // Make the SVG fill the full container width
       const svgEl = el.value.querySelector('svg')
       if (svgEl) {
         svgEl.style.width = '100%'
@@ -65,7 +63,7 @@ onMounted(async () => {
   width: 100% !important;
   max-width: 100% !important;
   height: auto !important;
-  min-height: 120px;
+  min-height: 200px;
 }
 .mermaid-diagram :deep(.node rect),
 .mermaid-diagram :deep(.node circle),
@@ -73,6 +71,6 @@ onMounted(async () => {
   stroke-width: 2px;
 }
 .mermaid-diagram :deep(.nodeLabel) {
-  font-size: 15px !important;
+  font-size: 18px !important;
 }
 </style>
