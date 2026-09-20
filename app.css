@@ -681,10 +681,16 @@ table {
 /* ============================================
    HIDE DEVELOPER / GITHUB EDIT & REPORT LINKS
    ============================================ */
-a[href*="github.com"][href*="/edit/"],
-a[href*="github.com"][href*="/issues/new"],
-div:has(> a[href*="github.com"][href*="/edit/"]),
-div:has(> a[href*="github.com"][href*="/issues/new"]),
-.u-page-body > .u-separator:has(a[href*="github.com"]) {
+a[href*="github.com"],
+a[href*="/edit/"],
+a[href*="/issues/"],
+.u-separator:has(a[href*="github.com"]),
+.u-separator:has(a[href*="/edit/"]),
+.u-separator:has(a[href*="/issues/"]),
+.u-page-body > .u-separator,
+.u-page-body [class*="separator"]:has(a[href*="github.com"]),
+div:has(> a[href*="github.com"]),
+div:has(> a[href*="/edit/"]),
+div:has(> a[href*="/issues/"]) {
   display: none !important;
 }
