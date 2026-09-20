@@ -85,10 +85,28 @@ description: National exam mock testing (Grade 6, 8, 12 ESLCE), exam seating pla
 
 :::u-page-card
 ---
-title: AI Teaching Assistant
+title: School Operations
+icon: i-lucide-bus
+to: /operations/transport
+description: Transport routes, student bus allocations, multi-calendar events planner, and data quality audits.
+---
+:::
+
+:::u-page-card
+---
+title: Mobile App Guide
+icon: i-lucide-smartphone
+to: /mobile/overview
+description: React Native mobile app for Teachers and Parents, offline sync, and camera QR attendance scanning.
+---
+:::
+
+:::u-page-card
+---
+title: Autonomous AI & Copilot
 icon: i-lucide-sparkles
-to: /ai/ai-teaching-assistant
-description: Automated 5E lesson plan generator, quiz question builder, and diagnostic student learning insights.
+to: /ai/ai-assistant
+description: Autonomous background copilots, AI timetable watchdog, lesson plan generator, and parent empathy outreach.
 ---
 :::
 ::
