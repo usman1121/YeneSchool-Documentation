@@ -8,15 +8,15 @@ export default defineAppConfig({
   },
 
   seo: {
-    title: 'YeneSchool — School Management System',
+    title: 'SchoolPlus — School Management System',
     description:
-      'User guides, role-based walkthroughs, and feature documentation for YeneSchool — the all-in-one school management platform built for Ethiopian schools.',
+      'User guides, role-based walkthroughs, and feature documentation for SchoolPlus — the all-in-one school management platform built for Ethiopian schools.',
   },
 
   header: {
-    title: 'Gradify',
+    title: 'SchoolPlus',
     logo: {
-      alt: 'Gradify',
+      alt: 'SchoolPlus',
       light: '/logo-light.svg',
       dark: '/logo-dark.svg',
       display: 'wordmark',
