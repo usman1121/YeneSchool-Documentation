@@ -37,7 +37,7 @@ export default defineAppConfig({
   },
 
   socials: {
-    website: 'https://yeneschool.com',
+    website: 'https://yeneschool.me',
     telegram: 'https://t.me/yeneschool',
     linkedin: 'https://linkedin.com/company/yeneschool',
     x: 'https://x.com/yeneschool',
@@ -51,7 +51,7 @@ export default defineAppConfig({
         {
           icon: 'i-lucide-message-circle',
           label: 'Contact Support',
-          to: 'mailto:support@yeneschool.com',
+          to: 'mailto:support@yeneschool.me',
           target: '_blank',
         },
       ],

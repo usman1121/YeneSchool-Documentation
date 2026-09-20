@@ -38,7 +38,7 @@ const isHomePage = computed(() => route.path === '/' || route.path === '')
 
         <!-- Main Website Link -->
         <UButton
-          to="https://yeneschool.com"
+          to="https://yeneschool.me"
           target="_blank"
           size="sm"
           class="flex items-center justify-center h-8 w-8"
