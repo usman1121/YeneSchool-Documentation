@@ -34,6 +34,13 @@ export default defineAppConfig({
       sans: 'Lexend Deca',
       mono: 'JetBrains Mono',
     },
+    modal: {
+      overlay: 'bg-neutral-950/40 dark:bg-black/65 backdrop-blur-md',
+      content: 'bg-white/90 dark:bg-neutral-900/90 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/80 shadow-2xl rounded-2xl overflow-hidden',
+    },
+    contentSearch: {
+      modal: 'sm:max-w-2xl',
+    },
   },
 
   socials: {

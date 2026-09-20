@@ -612,70 +612,89 @@ table {
 }
 
 /* ============================================
-   SEARCH MODAL BACKDROP BLUR
+   SEARCH & MODAL DIALOG FROSTED GLASS BLUR
    ============================================ */
-/* Nuxt UI Content Search uses UModal -> reka-ui DialogOverlay */
+/* Backdrop overlay blur */
 .DialogOverlay,
 [data-slot="overlay"],
+[data-state="open"] ~ [data-slot="overlay"],
 .u-modal [data-slot="overlay"],
 .u-slideover [data-slot="overlay"],
 .u-drawer [data-slot="overlay"],
-.u-content-search [data-slot="overlay"] {
-  backdrop-filter: blur(4px) !important;
-  -webkit-backdrop-filter: blur(4px) !important;
-  background-color: rgba(15, 23, 42, 0.5) !important;
-  transition: opacity 0.2s ease-in-out, backdrop-filter 0.2s ease-in-out !important;
+.u-content-search [data-slot="overlay"],
+[data-reka-dialog-overlay] {
+  backdrop-filter: blur(12px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+  background-color: rgba(15, 23, 42, 0.45) !important;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.25s ease !important;
 }
 
 .dark .DialogOverlay,
 .dark [data-slot="overlay"],
+.dark [data-state="open"] ~ [data-slot="overlay"],
 .dark .u-modal [data-slot="overlay"],
 .dark .u-slideover [data-slot="overlay"],
 .dark .u-drawer [data-slot="overlay"],
-.dark .u-content-search [data-slot="overlay"] {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+.dark .u-content-search [data-slot="overlay"],
+.dark [data-reka-dialog-overlay] {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Modal and Search Dialog Container Glassmorphism */
+.u-modal [data-slot="content"],
+.DialogContent,
+[data-slot="modal"] [data-slot="content"],
+[role="dialog"] [data-slot="content"],
+[data-reka-dialog-content],
+.u-content-search [data-slot="content"],
+.u-command-palette {
+  backdrop-filter: blur(20px) saturate(190%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(190%) !important;
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.7) !important;
+  box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.4) inset !important;
+  border-radius: 1rem !important;
+  overflow: hidden !important;
+}
+
+.dark .u-modal [data-slot="content"],
+.dark .DialogContent,
+.dark [data-slot="modal"] [data-slot="content"],
+.dark [role="dialog"] [data-slot="content"],
+.dark [data-reka-dialog-content],
+.dark .u-content-search [data-slot="content"],
+.dark .u-command-palette {
+  background-color: rgba(18, 18, 24, 0.88) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05) inset !important;
 }
 
 /* Search input focus styling */
 .u-content-search-input:focus,
 [data-slot="search-input"]:focus,
-.u-content-search [data-slot="input"]:focus {
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3) !important;
+.u-content-search [data-slot="input"]:focus,
+.u-command-palette [data-slot="input"]:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.35) !important;
 }
 
-/* Search results panel (CommandPalette content) */
+/* Search results panel (CommandPalette items) */
 .u-content-search-results,
 [data-slot="results"],
 .u-content-search [data-slot="results"],
 .u-command-palette [data-slot="content"],
 [data-slot="command-palette"] [data-slot="content"] {
-  backdrop-filter: blur(6px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-  background-color: rgba(255, 255, 255, 0.95) !important;
-  border: 1px solid rgba(226, 232, 240, 0.8) !important;
+  background-color: transparent !important;
 }
 
-.dark .u-content-search-results,
-.dark [data-slot="results"],
-.dark .u-content-search [data-slot="results"],
-.dark .u-command-palette [data-slot="content"],
-.dark [data-slot="command-palette"] [data-slot="content"] {
-  background-color: rgba(24, 24, 27, 0.95) !important;
-  border-color: rgba(63, 63, 70, 0.8) !important;
+/* Search input container inside command palette */
+.u-command-palette [data-slot="input"] {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7) !important;
 }
 
-/* Modal content backdrop blur */
-.u-modal [data-slot="content"],
-.DialogContent,
-[data-slot="content"] {
-  backdrop-filter: blur(8px) !important;
-  -webkit-backdrop-filter: blur(8px) !important;
-}
-
-.dark .u-modal [data-slot="content"],
-.dark .DialogContent,
-.dark [data-slot="content"] {
-  background-color: rgba(24, 24, 27, 0.95) !important;
+.dark .u-command-palette [data-slot="input"] {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  border-bottom: 1px solid rgba(63, 63, 70, 0.5) !important;
 }
 
 /* ============================================
