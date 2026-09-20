@@ -3,6 +3,10 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/app.css'],
 
+  routeRules: {
+    '/guides': { redirect: { to: '/guides/getting-started', statusCode: 302 } },
+  },
+
   app: {
     head: {
       title: 'YeneSchool Docs',

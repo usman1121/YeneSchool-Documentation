@@ -99,7 +99,7 @@ onUnmounted(() => {
         </div>
         <div class="cta-btn-wrapper inline-block">
           <UButton
-            to="/guides"
+            to="/guides/directory"
             color="neutral"
             variant="outline"
             size="xl"
