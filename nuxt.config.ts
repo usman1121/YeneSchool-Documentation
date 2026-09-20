@@ -18,7 +18,7 @@ export default defineNuxtConfig({
           content:
             'User guides, role-based walkthroughs, and feature documentation for YeneSchool — the all-in-one school management platform built for Ethiopian schools.',
         },
-        { name: 'theme-color', content: '#2563eb' },
+        { name: 'theme-color', content: '#60a5fa' },
         { property: 'og:title', content: 'YeneSchool Documentation' },
         {
           property: 'og:description',
