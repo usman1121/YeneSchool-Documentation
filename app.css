@@ -677,3 +677,14 @@ table {
 .dark [data-slot="content"] {
   background-color: rgba(24, 24, 27, 0.95) !important;
 }
+
+/* ============================================
+   HIDE DEVELOPER / GITHUB EDIT & REPORT LINKS
+   ============================================ */
+a[href*="github.com"][href*="/edit/"],
+a[href*="github.com"][href*="/issues/new"],
+div:has(> a[href*="github.com"][href*="/edit/"]),
+div:has(> a[href*="github.com"][href*="/issues/new"]),
+.u-page-body > .u-separator:has(a[href*="github.com"]) {
+  display: none !important;
+}
