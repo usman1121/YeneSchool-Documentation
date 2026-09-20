@@ -20,7 +20,7 @@ export default defineAppConfig({
       light: '/logo-light.svg',
       dark: '/logo-dark.svg',
       display: 'wordmark',
-      favicon: '/favicon.ico',
+      favicon: '/favicon.svg',
       class: 'h-12 w-auto',
     },
   },
