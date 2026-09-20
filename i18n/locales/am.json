@@ -1,0 +1,51 @@
+{
+  "nav": {
+    "home": "መነሻ",
+    "search": "ፈልግ...",
+    "guides": "መመሪያዎች",
+    "director": "ዳይሬክተር",
+    "teacher": "መምህር",
+    "registrar": "ሬጅስትራር",
+    "finance": "ፋይናንስ",
+    "parent": "ወላጅ እና ተማሪ",
+    "platform": "መድረክ"
+  },
+  "hero": {
+    "title": "SchoolPlus ሰነዶች",
+    "subtitle": "ለSchoolPlus የተጠቃሚ መመሪያዎች፣ የሚና-ተኮር ማብራሪያዎች እና የባህሪ ሰነዶች።",
+    "cta_primary": "ጀምር",
+    "cta_secondary": "GitHub ላይ ይመልከቱ"
+  },
+  "roles": {
+    "director": "ዳይሬክተር",
+    "teacher": "መምህር",
+    "registrar": "ሬጅስትራር",
+    "finance": "የፋይናንስ ሰራተኛ",
+    "parent": "ወላጅ",
+    "student": "ተማሪ"
+  },
+  "common": {
+    "on_this_page": "በዚህ ገጽ ላይ",
+    "prev": "ቀዳሚ",
+    "next": "ቀጣይ",
+    "edit_page": "ይህን ገጽ ያርትዑ",
+    "last_updated": "መጨረሻ የዘመነው",
+    "reading_time": "ደቂቃ ለማንበብ",
+    "table_of_contents": "የይዘት ዝርዝር",
+    "tip": "ምክር",
+    "warning": "ማስጠንቀቂያ",
+    "note": "ማስታወሻ",
+    "caution": "ጥንቃቄ",
+    "loading": "በመጫን ላይ...",
+    "rendering": "ሥዕላዊ መግለጫ በማሳየት ላይ…"
+  },
+  "theme": {
+    "toggle_light": "ወደ ብርሃን ሁነታ ቀይር",
+    "toggle_dark": "ወደ ጨለማ ሁነታ ቀይር"
+  },
+  "lang": {
+    "switch": "ቋንቋ ቀይር",
+    "en": "English",
+    "am": "አማርኛ"
+  }
+}
