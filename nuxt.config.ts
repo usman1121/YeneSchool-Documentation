@@ -31,6 +31,10 @@ export default defineNuxtConfig({
     '/guides': { redirect: { to: '/en/guides/getting-started', statusCode: 302 } },
   },
 
+  nitro: {
+    preset: 'vercel-static',
+  },
+
   app: {
     head: {
       title: 'YeneSchool Docs',
