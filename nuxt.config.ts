@@ -27,6 +27,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
+    '/': { redirect: { to: '/en', statusCode: 302 } },
     '/guides': { redirect: { to: '/en/guides/getting-started', statusCode: 302 } },
   },
 
