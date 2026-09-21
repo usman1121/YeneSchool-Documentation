@@ -52,6 +52,12 @@ export default defineNuxtConfig({
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap',
+        },
         // Preload mermaid so diagrams render instantly (no loading delay)
         { rel: 'preload', as: 'script', href: 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js' },
       ],
