@@ -7,14 +7,14 @@ const { isEnabled: isAssistantEnabled } = useAssistant()
 const { subNavigationMode } = useSubNavigation()
 
 const route = useRoute()
-const isHomePage = computed(() => route.path === '/' || route.path === '')
+const isHomePage = computed(() => route.path.split('/').filter(Boolean).length <= 1)
 </script>
 
 <template>
   <UHeader
     :ui="{
       root: 'border-none bg-transparent sticky top-0 z-50',
-      container: 'flex items-center justify-between h-14 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8',
+      container: 'flex items-center justify-between h-14 px-4 sm:px-6',
       left: 'flex items-center gap-3',
       center: 'flex-1 flex items-center justify-center',
       right: 'flex items-center gap-2',

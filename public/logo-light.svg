@@ -17,7 +17,7 @@
   </svg>
 
   <!-- SchoolPlus wordmark -->
-  <text x="76" y="47"
+  <text x="70" y="47"
     font-family="D3Euronism"
     font-size="32">
     <tspan fill="#0F172A">School</tspan><tspan fill="#60A5FA">Plus</tspan>

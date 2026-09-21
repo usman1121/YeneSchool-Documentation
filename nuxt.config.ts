@@ -4,6 +4,12 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['~/app.css'],
 
+  // Light is the default; the header toggle still works (persists via `color-mode` cookie).
+  colorMode: {
+    preference: 'light',
+    fallback: 'light',
+  },
+
   i18n: {
     locales: [
       { code: 'en', name: 'English',  file: 'en.json' },
@@ -21,7 +27,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/guides': { redirect: { to: '/guides/getting-started', statusCode: 302 } },
+    '/guides': { redirect: { to: '/en/guides/getting-started', statusCode: 302 } },
   },
 
   app: {

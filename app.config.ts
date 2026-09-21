@@ -1,7 +1,6 @@
 export default defineAppConfig({
   docus: {
     locale: 'en',
-    colorMode: 'light',
   },
   search: {
     fts: false,

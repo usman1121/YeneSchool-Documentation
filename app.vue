@@ -10,8 +10,15 @@ const { locale, locales, isEnabled, switchLocalePath } = useDocusI18n()
 const { isEnabled: isAssistantEnabled } = useAssistant()
 
 const nuxtUiLocale = computed(() => nuxtUiLocales[locale.value as keyof typeof nuxtUiLocales] || nuxtUiLocales.en)
-const lang = computed(() => nuxtUiLocale.value.code)
-const dir = computed(() => nuxtUiLocale.value.dir)
+// /en and /am are real route prefixes (Nuxt Content collections), so the html lang/dir
+// must follow the route even though the i18n strategy is `no_prefix` and the runtime
+// locale can lag behind the path on direct visits/hard reloads.
+const routeForLang = useRoute()
+const routeLang = computed<'en' | 'am'>(() =>
+  routeForLang.path === '/am' || routeForLang.path.startsWith('/am/') ? 'am' : 'en',
+)
+const lang = computed(() => (routeLang.value === 'am' ? 'am' : (nuxtUiLocale.value.code || 'en')))
+const dir = computed(() => (routeLang.value === 'am' ? 'ltr' : nuxtUiLocale.value.dir))
 const collectionName = computed(() => isEnabled.value ? `docs_${locale.value}` : 'docs')
 
 useHead({
@@ -46,8 +53,17 @@ if (isEnabled.value) {
   })
 }
 
-const { data: navigation } = await useAsyncData(() => `navigation_${collectionName.value}`, () => queryCollectionNavigation(collectionName.value as keyof PageCollections), {
+const { data: rawNavigation } = await useAsyncData(() => `navigation_${collectionName.value}`, () => queryCollectionNavigation(collectionName.value as keyof PageCollections), {
   watch: [locale],
+})
+
+// Docus mounts each locale's docs under content/<locale>/** with a /<locale> prefix, so the
+// navigation tree comes back wrapped in a single top-level node named after the locale
+// (e.g. "En"/"Am"). Unwrap it so the sidebar shows the actual section links directly.
+const navigation = computed<ContentNavigationItem[] | null | undefined>(() => {
+  const nav = rawNavigation.value
+  if (!Array.isArray(nav)) return nav
+  return nav.length === 1 && nav[0]?.children?.length ? nav[0].children : nav
 })
 
 provide('navigation', navigation)

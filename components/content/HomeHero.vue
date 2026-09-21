@@ -89,7 +89,7 @@ onUnmounted(() => {
       <div class="hero-cta-buttons flex flex-wrap items-center justify-center gap-4 pt-3">
         <div class="cta-btn-wrapper inline-block">
           <UButton
-            to="/guides/getting-started"
+            to="/en/guides/getting-started"
             size="xl"
             trailing-icon="i-lucide-arrow-right"
             class="px-8 py-3.5 font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
@@ -99,7 +99,7 @@ onUnmounted(() => {
         </div>
         <div class="cta-btn-wrapper inline-block">
           <UButton
-            to="/guides/directory"
+            to="/en/guides/directory"
             color="neutral"
             variant="outline"
             size="xl"

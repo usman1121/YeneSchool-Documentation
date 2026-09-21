@@ -40,23 +40,31 @@ export const HOME_TRANSLATIONS: Record<SupportedLang, {
 }
 
 export function useLanguage() {
-  const currentLang = useState<SupportedLang>('yeneschool_current_lang', () => 'en')
+  // The route path (/en vs /am) is the source of truth for the home page
+  // language — it is reliable on both the server and the client, unlike the
+  // i18n runtime locale or a legacy localStorage value.
+  const route = useRoute()
+
+  function langFromPath(path: string): SupportedLang {
+    return path === '/am' || path.startsWith('/am/') ? 'am' : 'en'
+  }
+
+  const currentLang = computed<SupportedLang>(() => langFromPath(route.path))
+
+  // Keep a legacy mutable state for backward compatibility.
+  const legacyLang = useState<SupportedLang>('yeneschool_current_lang', () => 'en')
 
   function initLanguage() {
     if (import.meta.client) {
       try {
-        const stored = localStorage.getItem('yeneschool_lang') as SupportedLang | null
-        if (stored && SUPPORTED_LANGUAGES.some(l => l.code === stored)) {
-          currentLang.value = stored
-          document.documentElement.lang = stored
-          document.documentElement.dataset.language = stored
-        }
+        document.documentElement.lang = currentLang.value
+        document.documentElement.dataset.language = currentLang.value
       } catch {}
     }
   }
 
   function setLanguage(code: SupportedLang) {
-    currentLang.value = code
+    legacyLang.value = code
     if (import.meta.client) {
       try {
         localStorage.setItem('yeneschool_lang', code)
