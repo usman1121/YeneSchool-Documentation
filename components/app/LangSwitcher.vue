@@ -48,6 +48,18 @@ const availableLocales = computed(() => locales.value as any[])
 async function switchLocale(code: string) {
   await setLocale(code)
   open.value = false
+  const route = useRoute()
+  let targetPath = route.path
+  if (code === 'am') {
+    if (targetPath === '/en' || targetPath === '/') targetPath = '/am'
+    else if (targetPath.startsWith('/en/')) targetPath = targetPath.replace(/^\/en\//, '/am/')
+  } else {
+    if (targetPath === '/am' || targetPath === '/') targetPath = '/en'
+    else if (targetPath.startsWith('/am/')) targetPath = targetPath.replace(/^\/am\//, '/en/')
+  }
+  if (targetPath !== route.path) {
+    navigateTo(targetPath)
+  }
 }
 
 function onClickOutside(event: MouseEvent) {

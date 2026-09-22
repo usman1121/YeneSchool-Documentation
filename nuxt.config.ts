@@ -1,5 +1,24 @@
-import { copyFileSync, existsSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { copyFileSync, existsSync, readdirSync, statSync } from 'node:fs'
+import { resolve, join } from 'node:path'
+
+// Helper to crawl all markdown files in content subdirectories so all locale routes prerender statically
+function getContentRoutes(dir: string, base = ''): string[] {
+  const routes: string[] = []
+  if (!existsSync(dir)) return routes
+  for (const entry of readdirSync(dir)) {
+    if (entry.startsWith('.')) continue
+    const fullPath = join(dir, entry)
+    const isDir = statSync(fullPath).isDirectory()
+    const cleanSegment = entry.replace(/^\d+\./, '').replace(/\.md$/, '')
+    const routePath = `${base}/${cleanSegment}`
+    if (isDir) {
+      routes.push(...getContentRoutes(fullPath, routePath))
+    } else if (entry.endsWith('.md')) {
+      routes.push(cleanSegment === 'index' ? (base || '/') : routePath)
+    }
+  }
+  return routes
+}
 
 // Ensure Docus recognizes Amharic locale (Docus checks node_modules/docus/i18n/locales/)
 try {
@@ -48,35 +67,15 @@ export default defineNuxtConfig({
   llms: false,
 
   nitro: {
-    preset: 'vercel-static',
-  },
-
-  hooks: {
-    'build:done': async () => {
-      try {
-        const { resolve } = await import('node:path')
-        const { existsSync } = await import('node:fs')
-        const { readFile, writeFile } = await import('node:fs/promises')
-        const vcPath = resolve('.vercel/output/config.json')
-        if (existsSync(vcPath)) {
-          const data = await readFile(vcPath, 'utf8')
-          const cfg = JSON.parse(data)
-          if (Array.isArray(cfg.routes)) {
-            const prevCount = cfg.routes.length
-            cfg.routes = cfg.routes.filter((r: any) => {
-              if (r.dest && r.dest.includes('/raw/')) return false
-              if (r.dest === '/llms.txt') return false
-              if (r.headers && r.headers['content-type']?.includes('text/markdown')) return false
-              if (r.headers && r.headers['vary'] === 'Accept, User-Agent') return false
-              return true
-            })
-            await writeFile(vcPath, JSON.stringify(cfg, null, 2), 'utf8')
-            console.log(`[vercel-fix] Sanitized config.json routes from ${prevCount} to ${cfg.routes.length}`)
-          }
-        }
-      } catch (e) {
-        console.warn('[vercel-fix] Could not sanitize config.json:', e)
-      }
+    preset: 'static',
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        '/en',
+        '/am',
+        ...getContentRoutes(resolve(__dirname, 'content/en'), '/en'),
+        ...getContentRoutes(resolve(__dirname, 'content/am'), '/am'),
+      ],
     },
   },
 

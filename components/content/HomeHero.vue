@@ -89,7 +89,7 @@ onUnmounted(() => {
       <div class="hero-cta-buttons flex flex-wrap items-center justify-center gap-4 pt-3">
         <div class="cta-btn-wrapper inline-block">
           <UButton
-            to="/en/guides/getting-started"
+            :to="currentLang === 'am' ? '/am/guides/getting-started' : '/en/guides/getting-started'"
             size="xl"
             trailing-icon="i-lucide-arrow-right"
             class="px-8 py-3.5 font-semibold shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/35 hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
@@ -99,12 +99,12 @@ onUnmounted(() => {
         </div>
         <div class="cta-btn-wrapper inline-block">
           <UButton
-            to="/en/guides/directory"
+            :to="currentLang === 'am' ? '/am/guides/directory' : '/en/guides/directory'"
+            size="xl"
             color="neutral"
             variant="outline"
-            size="xl"
-            icon="i-lucide-book-open"
-            class="px-8 py-3.5 font-semibold hover:-translate-y-0.5 active:scale-95 transition-all duration-200 text-base sm:text-lg"
+            trailing-icon="i-lucide-folder-tree"
+            class="px-8 py-3.5 font-semibold hover:bg-neutral-100 dark:hover:bg-neutral-800/80 active:scale-95 transition-all duration-200 text-base sm:text-lg"
           >
             {{ t.browseGuides }}
           </UButton>
