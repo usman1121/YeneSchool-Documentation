@@ -1,3 +1,17 @@
+import { copyFileSync, existsSync } from 'node:fs'
+import { resolve } from 'node:path'
+
+// Ensure Docus recognizes Amharic locale (Docus checks node_modules/docus/i18n/locales/)
+try {
+  const amLocaleSrc = resolve(__dirname, 'locales/am.json')
+  const docusLocaleDir = resolve(__dirname, 'node_modules/docus/i18n/locales')
+  if (existsSync(amLocaleSrc) && existsSync(docusLocaleDir)) {
+    copyFileSync(amLocaleSrc, resolve(docusLocaleDir, 'am.json'))
+  }
+} catch (e) {
+  console.warn('[i18n] Failed to copy am.json to docus:', e)
+}
+
 export default defineNuxtConfig({
   extends: ['docus'],
   modules: ['@nuxtjs/i18n'],

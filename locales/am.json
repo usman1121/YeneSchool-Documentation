@@ -25,6 +25,7 @@
     "student": "ተማሪ"
   },
   "common": {
+    "or": "ወይም",
     "on_this_page": "በዚህ ገጽ ላይ",
     "prev": "ቀዳሚ",
     "next": "ቀጣይ",
@@ -37,7 +38,79 @@
     "note": "ማስታወሻ",
     "caution": "ጥንቃቄ",
     "loading": "በመጫን ላይ...",
-    "rendering": "ሥዕላዊ መግለጫ በማሳየት ላይ…"
+    "rendering": "ሥዕላዊ መግለጫ በማሳየት ላይ…",
+    "error": {
+      "title": "ገጹ አልተገኘም",
+      "description": "ይቅርታ፣ ይህ ገጽ ሊገኝ አልቻለም።"
+    }
+  },
+  "docs": {
+    "copy": {
+      "page": "ገጹን ቅዳ",
+      "link": "የማርክዳውን ገጽ ቅዳ",
+      "view": "እንደ ማርክዳውን ይመልከቱ",
+      "gpt": "በChatGPT ክፈት",
+      "claude": "በClaude ክፈት"
+    },
+    "links": "ማህበረሰብ",
+    "toc": "በዚህ ገጽ ላይ",
+    "menu": "ምናሌ",
+    "report": "ችግር ሪፖርት አድርግ",
+    "edit": "ይህን ገጽ ያርትዑ"
+  },
+  "logo": {
+    "copyLogo": "አርማ ቅዳ",
+    "copyWordmark": "የስም ምልክት ቅዳ",
+    "downloadLogo": "አርማ አውርድ",
+    "downloadWordmark": "የስም ምልክት አውርድ",
+    "brandAssets": "የብራንድ ንብረቶች",
+    "logoCopied": "አርማው ተቀድቷል",
+    "wordmarkCopied": "የስም ምልክቱ ተቀድቷል",
+    "logoDownloaded": "አርማው ወርዷል",
+    "wordmarkDownloaded": "የስም ምልክቱ ወርዷል",
+    "copyLogoFailed": "አርማውን መቅዳት አልተሳካም",
+    "copyWordmarkFailed": "የስም ምልክቱን መቅዳት አልተሳካም"
+  },
+  "assistant": {
+    "title": "AI ይጠይቁ",
+    "placeholder": "ጥያቄ ይጠይቁ...",
+    "tooltip": "ለAI ጥያቄ ይጠይቁ",
+    "tryAsking": "ጥያቄ ለመጠየቅ ይሞክሩ",
+    "askAnything": "ማንኛውንም ነገር ይጠይቁ...",
+    "clearChat": "ውይይት አጽዳ",
+    "close": "ዝጋ",
+    "expand": "አስፋ",
+    "collapse": "አሳንስ",
+    "askMeAnything": "ማንኛውንም ነገር ይጠይቁ",
+    "askMeAnythingDescription": "ሰነዶቹን ለማሰስ፣ ፅንሰ-ሀሳቦችን ለመረዳት እና መልሶችን ለማግኘት እገዛ ያግኙ።",
+    "faq": "ተደጋጋሚ ጥያቄዎች",
+    "chatCleared": "ገጹ ሲታደስ ውይይቱ ይጸዳል",
+    "lineBreak": "አዲስ መስመር",
+    "explainWithAi": "በAI አብራራ",
+    "toolListPages": "የተዘረዘሩ የሰነድ ገጾች",
+    "toolReadPage": "አንብብ",
+    "tools": {
+      "searching": "በመፈለግ ላይ",
+      "searched": "ተፈልጓል",
+      "reading": "በማንበብ ላይ",
+      "read": "ተነቧል",
+      "finding": "በማግኘት ላይ",
+      "found": "ተገኝቷል",
+      "opening": "በመክፈት ላይ",
+      "opened": "ተከፍቷል",
+      "generating": "በማመንጨት ላይ",
+      "generated": "ተመንጭቷል",
+      "creating": "በመፍጠር ላይ",
+      "created": "ተፈጥሯል"
+    },
+    "loading": {
+      "thinking": "በማሰብ ላይ...",
+      "searching": "ሰነዶቹን በመፈለግ ላይ",
+      "reading": "ሰነዶቹን በማንበብ ላይ",
+      "analyzing": "ይዘቱን በመተንተን ላይ",
+      "finding": "ምርጡን መልስ በማግኘት ላይ",
+      "finished": "ጥቅም ላይ የዋሉ ምንጮች"
+    }
   },
   "theme": {
     "toggle_light": "ወደ ብርሃን ሁነታ ቀይር",

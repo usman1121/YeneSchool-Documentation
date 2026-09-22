@@ -2,7 +2,8 @@
   "name": "docus-starter",
   "scripts": {
     "dev": "nuxt dev",
-    "build": "nuxt build"
+    "build": "nuxt build",
+    "postinstall": "node -e \"const fs=require('node:fs'),p=require('node:path');try{fs.copyFileSync(p.resolve('locales/am.json'),p.resolve('node_modules/docus/i18n/locales/am.json'))}catch(e){}\""
   },
   "dependencies": {
     "@nuxtjs/i18n": "^10.6.0",
