@@ -31,8 +31,39 @@ export default defineNuxtConfig({
     '/guides': { redirect: { to: '/en/guides/getting-started', statusCode: 302 } },
   },
 
+  llms: false,
+
   nitro: {
     preset: 'vercel-static',
+  },
+
+  hooks: {
+    'build:done': async () => {
+      try {
+        const { resolve } = await import('node:path')
+        const { existsSync } = await import('node:fs')
+        const { readFile, writeFile } = await import('node:fs/promises')
+        const vcPath = resolve('.vercel/output/config.json')
+        if (existsSync(vcPath)) {
+          const data = await readFile(vcPath, 'utf8')
+          const cfg = JSON.parse(data)
+          if (Array.isArray(cfg.routes)) {
+            const prevCount = cfg.routes.length
+            cfg.routes = cfg.routes.filter((r: any) => {
+              if (r.dest && r.dest.includes('/raw/')) return false
+              if (r.dest === '/llms.txt') return false
+              if (r.headers && r.headers['content-type']?.includes('text/markdown')) return false
+              if (r.headers && r.headers['vary'] === 'Accept, User-Agent') return false
+              return true
+            })
+            await writeFile(vcPath, JSON.stringify(cfg, null, 2), 'utf8')
+            console.log(`[vercel-fix] Sanitized config.json routes from ${prevCount} to ${cfg.routes.length}`)
+          }
+        }
+      } catch (e) {
+        console.warn('[vercel-fix] Could not sanitize config.json:', e)
+      }
+    },
   },
 
   app: {
